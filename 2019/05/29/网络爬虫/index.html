@@ -96,14 +96,18 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content=".net core下的Docker使用">
-<meta property="og:url" content="http://yoursite.com/2019/05/07/net-core下的Docker使用/index.html">
+  <meta name="description" content="最近有个项目，需要分析网页去模拟请求，期间碰到几个问题，写篇文章记录一下。这里用的网页解析库为Nsoup(Jsoup的.Net 移植版本)。">
+<meta name="keywords" content="爬虫,Nsoup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络爬虫">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/网络爬虫/index.html">
 <meta property="og:site_name" content="FireFrog&#39;s Blog">
+<meta property="og:description" content="最近有个项目，需要分析网页去模拟请求，期间碰到几个问题，写篇文章记录一下。这里用的网页解析库为Nsoup(Jsoup的.Net 移植版本)。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T14:42:18.663Z">
+<meta property="og:updated_time" content="2019-05-29T12:04:32.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".net core下的Docker使用">
+<meta name="twitter:title" content="网络爬虫">
+<meta name="twitter:description" content="最近有个项目，需要分析网页去模拟请求，期间碰到几个问题，写篇文章记录一下。这里用的网页解析库为Nsoup(Jsoup的.Net 移植版本)。">
 
 
 
@@ -111,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/07/net-core下的Docker使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/29/网络爬虫/">
 
 
 
@@ -121,7 +125,7 @@
   };
 </script>
 
-  <title>.net core下的Docker使用 | FireFrog's Blog</title>
+  <title>网络爬虫 | FireFrog's Blog</title>
   
 
 
@@ -307,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/net-core下的Docker使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/网络爬虫/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shen Wen Jun">
@@ -324,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">.net core下的Docker使用
+          <h1 class="post-title" itemprop="name headline">网络爬虫
 
               
             
@@ -350,9 +354,13 @@
                 
               
 
-              <time title="创建时间：2019-05-07 22:42:18" itemprop="dateCreated datePublished" datetime="2019-05-07T22:42:18+08:00">2019-05-07</time>
+              <time title="创建时间：2019-05-29 19:12:19 / 修改时间：20:04:32" itemprop="dateCreated datePublished" datetime="2019-05-29T19:12:19+08:00">2019-05-29</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -385,7 +393,15 @@
       
 
       
-        
+        <p>最近有个项目，需要分析网页去模拟请求，期间碰到几个问题，写篇文章记录一下。这里用的网页解析库为Nsoup(Jsoup的.Net 移植版本)。</p>
+<a id="more"></a>
+<p>网络爬虫说的简单点就是模拟网页上的POST、GET请求去实现完成网页上的功能，一般是为了获取数据。也可以是为了解放劳动力23333。</p>
+<p>简单说下如何获取模拟请求需要的参数，利用chrome里的工具（F12调出），查看Network页下的访问链接，主要需要的参数在Headers下可以获取到Request URL、Request Method以及Request Headers信息。</p>
+<h3 id="0x01-请求出现400"><a href="#0x01-请求出现400" class="headerlink" title="0x01 请求出现400"></a>0x01 请求出现400</h3><p>在使用POSTMAN模拟的时候返回400 Bad Request，让我很纳闷，参数什么的都对。一顿操作下来让我发现是Content-Length搞得鬼，去掉这个Key再去请求就成功了。可能原因是Content-Length既表示实体长度，又表示传输长度，两者不相等导致。当然除了去掉的方式，还有别的方式，可以深入研究下。</p>
+<h3 id="0x02-需要注意的点"><a href="#0x02-需要注意的点" class="headerlink" title="0x02 需要注意的点"></a>0x02 需要注意的点</h3><p>1、请求需要带cookie，大部分会用cookie验证请求，也可以区分是PC还是移动端（User-Agent也可以用来区分）。</p>
+<p>2、正确使用GET\POST请求</p>
+<p>3、利用好抓包工具如Wireshark</p>
+
       
     </div>
 
@@ -406,6 +422,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/Nsoup/" rel="tag"># Nsoup</a>
+          
+        </div>
+      
 
       
       
@@ -415,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/06/Hexo折腾笔记/" rel="next" title="Hexo折腾笔记">
-                <i class="fa fa-chevron-left"></i> Hexo折腾笔记
+              <a href="/2019/05/07/net-core下的Docker使用/" rel="next" title=".net core下的Docker使用">
+                <i class="fa fa-chevron-left"></i> .net core下的Docker使用
               </a>
             
           </div>
@@ -424,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/29/网络爬虫/" rel="prev" title="网络爬虫">
-                网络爬虫 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -471,8 +491,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -556,6 +585,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-请求出现400"><span class="nav-number">1.</span> <span class="nav-text">0x01 请求出现400</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-需要注意的点"><span class="nav-number">2.</span> <span class="nav-text">0x02 需要注意的点</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
